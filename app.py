@@ -4,5 +4,5 @@ st.set_page_config(
     page_title="DiamondBeat: Visualizing Seventeen’s Journey Through Data"
 )
 
-st.header("Genetic Algorithm", divider="gray")
+st.header("DiamondBeat: Visualizing Seventeen’s Journey Through Data", divider="gray")
 
