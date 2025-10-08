@@ -1,3 +1,8 @@
 import streamlit as st
-st.title("SVT13")
-st.write("Hello from Streamlit!")
+
+st.set_page_config(
+    page_title="DiamondBeat: Visualizing Seventeen’s Journey Through Data"
+)
+
+st.header("Genetic Algorithm", divider="gray")
+
