@@ -1,8 +1,8 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="DiamondBeat: Visualizing Seventeen’s Journey Through Data"
+    page_title="Scientific Visualization"
 )
 
-st.header("DiamondBeat: Visualizing Seventeen’s Journey Through Data", divider="gray")
+st.header("Scientific Visualization")
 
