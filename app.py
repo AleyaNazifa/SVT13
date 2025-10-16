@@ -47,7 +47,7 @@ st.dataframe(df.head())
 
 st.markdown("---")
 
-# --- 2. Gender Distribution (Pie Chart - From initial request) ---
+# --- 2. Gender Distribution (Pie Chart) ---
 st.header('2. Gender Distribution')
 
 if 'Gender' in df.columns:
@@ -65,6 +65,13 @@ if 'Gender' in df.columns:
     )
     fig_gender.update_traces(textposition='inside', textinfo='percent+label')
     st.plotly_chart(fig_gender, use_container_width=True)
+
+    # Interpretation 1
+    st.info("""
+    **Interpretation 1: Gender Distribution**
+
+    The pie chart shows that **female students** make up a slightly larger portion of the Faculty of Arts compared to male students. This indicates that the faculty attracts more female participants, which may reflect broader enrollment trends in arts and humanities disciplines. Such gender balance could influence teaching approaches and student engagement activities.
+    """)
 else:
     st.warning("The 'Gender' column is missing. Cannot generate the chart.")
 
@@ -88,6 +95,13 @@ try:
     )
     fig_gpa.update_layout(yaxis_title='Average GPA', xaxis_title='Academic Level')
     st.plotly_chart(fig_gpa, use_container_width=True)
+
+    # Interpretation 2
+    st.info("""
+    **Interpretation 2: Average GPA Comparison (S.S.C vs H.S.C)**
+
+    The bar chart reveals that students generally achieved **higher average GPA scores in the S.S.C** compared to the H.S.C examinations. This suggests that academic performance tends to decline slightly as students progress to higher levels of education, possibly due to increased academic difficulty or subject specialization. It may also highlight the need for better academic support at the higher secondary level.
+    """)
 except Exception as e:
     st.warning(f"Could not generate GPA Comparison chart: {e}")
 
@@ -111,6 +125,13 @@ try:
     )
     fig_coaching.update_layout(yaxis_title='Number of Students', xaxis_title='Attended Coaching Center?')
     st.plotly_chart(fig_coaching, use_container_width=True)
+
+    # Interpretation 3
+    st.info("""
+    **Interpretation 3: Coaching Center Attendance**
+
+    The majority of students reported **not attending a coaching center**, as seen in the bar chart. This implies that most students relied on their formal education rather than external academic support. Those who did attend coaching centers may have sought additional help to strengthen specific subject areas, indicating varying learning strategies among students.
+    """)
 except Exception as e:
     st.warning(f"Could not generate Coaching Attendance chart: {e}")
 
@@ -148,6 +169,13 @@ try:
     )
     fig_box.update_layout(yaxis_title='Rating (1–5)', xaxis_title='Question')
     st.plotly_chart(fig_box, use_container_width=True)
+
+    # Interpretation 4
+    st.info("""
+    **Interpretation 4: Expectation vs Reality (Box Plot)**
+
+    The box plot indicates that students had **consistently high expectations** (Q1–Q4) regarding educational quality, faculty, and learning resources, typically around a score of 4 to 5. However, the “extent expectations were met” (Q5) showed slightly lower median scores, suggesting a **moderate gap between student expectations and actual experiences**. This points to potential areas for institutional improvement to align outcomes with expectations.
+    """)
 except Exception as e:
     st.warning(f"Could not generate Expectation vs Reality chart: {e}")
 
@@ -168,7 +196,7 @@ try:
         title='Top Aspects of the Program (Best Aspect)',
         labels={'Aspect': 'Aspect of Program', 'Count': 'Number of Students'},
         color='Aspect', # This line tells Plotly to color each bar based on the 'Aspect'
-        color_discrete_sequence=px.colors.qualitative.Pastel # Using a qualitative color sequence
+        color_discrete_sequence=px.colors.qualitative.Prism # Using a new qualitative color sequence
     )
     fig_aspect.update_layout(
         yaxis_title='Number of Students',
@@ -178,8 +206,15 @@ try:
     fig_aspect.update_xaxes(tickangle=30)
     fig_aspect.update_traces(marker_line_width=1, marker_line_color="black") # Add borders
     st.plotly_chart(fig_aspect, use_container_width=True)
+
+    # Interpretation 5
+    st.info("""
+    **Interpretation 5: Top Aspects of the Program**
+
+    The bar chart highlights that **“Teaching and Learning” was the most appreciated aspect** of the program, followed by positive mentions of faculty quality and learning environment. This suggests that students value the direct teaching experience and instructor engagement the most. Focusing on sustaining and enhancing teaching quality could further boost student satisfaction and academic outcomes.
+    """)
 except Exception as e:
     st.warning(f"Could not generate Top Aspects chart: {e}")
 
 st.markdown("---")
-st.success("Analysis complete! All charts are interactive using Plotly.")
+st.success("Analysis complete! All charts and interpretations are now displayed!")
