@@ -155,6 +155,7 @@ st.markdown("---")
 
 # --- 6. Top Aspects of the Program (Bar Chart) ---
 st.header('6. Top Aspects of the Program')
+st.write("Counts of the best aspect of the program as rated by the students.")
 
 try:
     aspect_counts = df['Best_Program_Aspect'].value_counts().reset_index()
@@ -166,8 +167,8 @@ try:
         y='Count',
         title='Top Aspects of the Program (Best Aspect)',
         labels={'Aspect': 'Aspect of Program', 'Count': 'Number of Students'},
-        color='Aspect',
-        color_discrete_sequence=['lightgreen'] * len(aspect_counts) # Consistent color
+        color='Aspect', # This line tells Plotly to color each bar based on the 'Aspect'
+        color_discrete_sequence=px.colors.qualitative.Pastel # Using a qualitative color sequence
     )
     fig_aspect.update_layout(
         yaxis_title='Number of Students',
@@ -175,6 +176,7 @@ try:
         xaxis={'categoryorder':'total descending'}
     )
     fig_aspect.update_xaxes(tickangle=30)
+    fig_aspect.update_traces(marker_line_width=1, marker_line_color="black") # Add borders
     st.plotly_chart(fig_aspect, use_container_width=True)
 except Exception as e:
     st.warning(f"Could not generate Top Aspects chart: {e}")
